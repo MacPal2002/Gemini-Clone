@@ -20,7 +20,9 @@ const ContextProvider = (props) => {
     }
 
     const formatText = (inputText) => {
-        let outputText = inputText.replace(/##(.*?)\n/g, "<h2>$1</h2>");
+        let outputText = inputText.replace(/###(.*?)\n/g, "<h2>$1</h2>");
+        outputText = outputText.replace(/##(.*?)\n/g, "<h3>$1</h3>");
+        outputText = outputText.replace(/#(.*?)\n/g, "<h4>$1</h4>");
         outputText = outputText.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
         outputText = outputText.replace(/\*(.*?)\n/g, "<li>$1</li>");
         outputText = outputText.replace(/(?:\r\n|\r|\n)/g, '<br>');
