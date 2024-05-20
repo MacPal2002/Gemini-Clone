@@ -32,7 +32,7 @@ const Main = () => {
                         <img src={assets.bulb_icon} alt="" />
                     </div>
                     <div className="card" onClick={(e) => onSent(e.currentTarget.querySelector('p').textContent)}>
-                        <p>Przeprowadź burzę mózgów dotyczącą działań łączących zespół w ramach naszych rekolekcji roboczych</p>
+                        <p>Przeprowadź burzę mózgów dotyczącą działań łączących zespół</p>
                         <img src={assets.message_icon} alt="" />
                     </div>
                     <div className="card" onClick={(e) => onSent(e.currentTarget.querySelector('p').textContent)}>
