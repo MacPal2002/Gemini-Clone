@@ -19,17 +19,19 @@ const ContextProvider = (props) => {
 
     }
 
+    const formatText = (inputText) => {
+        let outputText = inputText.replace(/##(.*?)\n/g, "<h2>$1</h2>");
+        outputText = outputText.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+        outputText = outputText.replace(/\*(.*?)\n/g, "<li>$1</li>");
+        outputText = outputText.replace(/(?:\r\n|\r|\n)/g, '<br>');
+        return outputText;
+    };
+
     const newChat = () =>{
         setLoading(false);
         setShowResult(false);
 
     }
-
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter' && input) {
-            onSent();
-        }
-    };
 
     const onSent = async (prompt, save=true) => {
         setResultData("")
@@ -40,23 +42,12 @@ const ContextProvider = (props) => {
         if (save){
             setPrevPrompts(prev=>[...prev, prompt])
         }
-        
+
         setRecentPrompt(prompt);
         response = await run(prompt);
-       
-        let responseArray = response.split('**')
-        let newResponse = "";
-        for(let i = 0; i < responseArray.length; i++){
-            if(i === 0 || i%2 !== 1){
-                newResponse += responseArray[i];
-            }
-            else{
-                newResponse += "<b>" + responseArray[i] + "</b>"
-            }
-        }
-        let newResponse2 = newResponse.split("*").join("</br>")
 
-        let newResponseArray = newResponse2.split(" ");
+        let newResponseArray = formatText(response).split(" ");
+
         for( let i = 0; i < newResponseArray.length; i++){
             const nextWord = newResponseArray[i];
             delayPara(i,nextWord+" ");
@@ -77,7 +68,6 @@ const ContextProvider = (props) => {
         input,
         setInput,
         newChat,
-        handleKeyDown,
     }
 
     return(

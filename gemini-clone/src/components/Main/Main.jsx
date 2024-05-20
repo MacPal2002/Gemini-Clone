@@ -6,7 +6,13 @@ import { Context } from '../../context/Context';
 
 const Main = () => {
 
-    const {onSent, recentPrompt, showResult, loading, resultData, setInput, input, handleKeyDown} = useContext(Context)
+    const {onSent, recentPrompt, showResult, loading, resultData, setInput, input} = useContext(Context)
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && input) {
+            onSent();
+        }
+    };
 
   return (
     <div className='main'>
