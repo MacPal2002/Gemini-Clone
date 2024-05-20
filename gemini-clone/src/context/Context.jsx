@@ -25,6 +25,12 @@ const ContextProvider = (props) => {
 
     }
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && input) {
+            onSent();
+        }
+    };
+
     const onSent = async (prompt) => {
         setResultData("")
         setLoading(true);
@@ -72,9 +78,8 @@ const ContextProvider = (props) => {
         resultData,
         input,
         setInput,
-        newChat
-
-
+        newChat,
+        handleKeyDown,
     }
 
     return(
