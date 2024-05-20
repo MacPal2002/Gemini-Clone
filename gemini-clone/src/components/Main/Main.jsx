@@ -19,23 +19,23 @@ const Main = () => {
             ?
             <>
                 <div className="greet">
-                    <p><span>Cześć, Dev.</span></p>
+                    <p><span>Cześć, Macieju</span></p>
                     <p>W czym mogę Ci pomóc?</p>
                 </div>
                 <div className="cards">
-                    <div className="card">
+                    <div className="card" onClick={(e) => onSent(e.currentTarget.querySelector('p').textContent)}>
                         <p>Zaproponuj piękne miejsca do zobaczenia podczas zbliżającej się podróży</p>
                         <img src={assets.compass_icon} alt="" />
                     </div>
-                    <div className="card">
+                    <div className="card" onClick={(e) => onSent(e.currentTarget.querySelector('p').textContent)}>
                         <p>Krótko podsumuj tę koncepcję: urbanistyka</p>
                         <img src={assets.bulb_icon} alt="" />
                     </div>
-                    <div className="card">
+                    <div className="card" onClick={(e) => onSent(e.currentTarget.querySelector('p').textContent)}>
                         <p>Przeprowadź burzę mózgów dotyczącą działań łączących zespół w ramach naszych rekolekcji roboczych</p>
                         <img src={assets.message_icon} alt="" />
                     </div>
-                    <div className="card">
+                    <div className="card" onClick={(e) => onSent(e.currentTarget.querySelector('p').textContent)}>
                         <p>Popraw czytelność poniższego kodu</p>
                         <img src={assets.code_icon} alt="" />
                     </div>
