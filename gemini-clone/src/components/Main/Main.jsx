@@ -10,7 +10,7 @@ const Main = () => {
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter' && input) {
-            onSent();
+            onSent(input);
         }
     };
 
