@@ -65,7 +65,7 @@ const Main = () => {
                 <div className="search-box">
                     <input onChange={(e)=>setInput(e.target.value)} value={input} onKeyDown={handleKeyDown} type="text" placeholder='Zadaj pytanie' />
                     <div>
-                        {input? <img onClick={() => onSent()} src={assets.send_icon} alt="" /> : null}
+                        {input? <img onClick={() => onSent(input)} src={assets.send_icon} alt="" /> : null}
                     </div>
                 </div>
                 <p className="bottom-info">
