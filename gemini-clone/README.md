@@ -1,8 +1,29 @@
-# React + Vite
+# Gemini Custom
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Gemini Custom to aplikacja do interaktywnej komunikacji z systemem  API Gemini przy użyciu sztucznej inteligencji. Aplikacja umożliwia zadawanie pytań i otrzymywanie odpowiedzi na różnorodne tematy.
 
-Currently, two official plugins are available:
+## Wprowadzenie
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Gemini Custom został stworzony jako narzędzie do szybkiego uzyskiwania informacji oraz wsparcia w podejmowaniu decyzji. Wykorzystuje on sztuczną inteligencję opartą na technologiach przetwarzania języka naturalnego.
+
+## Funkcje
+
+- Interaktywne zadawanie pytań
+- Otrzymywanie natychmiastowych odpowiedzi
+- Podświetlanie składni kodu w odpowiedziach
+
+## Technologie
+
+- React.js
+- Node.js
+- API Gemini
+- Markdown
+- Highlight.js
+
+## Autor
+
+Gemini Custom został stworzony przez [Twoje Imię/Nazwisko].
+
+---
+
+
