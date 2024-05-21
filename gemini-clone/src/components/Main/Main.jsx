@@ -6,7 +6,7 @@ import { Context } from '../../context/Context';
 
 const Main = () => {
 
-    const {onSent, recentPrompt, showResult, loading, resultData, setInput, input} = useContext(Context)
+    const {onSent, recentPrompt, showResult, loading, resultData, setInput, input, resultContainerRef} = useContext(Context)
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter' && input) {
@@ -47,7 +47,7 @@ const Main = () => {
                     </div>
                 </div>    
             </>
-            : <div className='result'>
+            : <div ref={resultContainerRef} className='result'>
                 <div className="result-title">
                     <img src={assets.user_icon} alt="" />
                     <p>{recentPrompt}</p>

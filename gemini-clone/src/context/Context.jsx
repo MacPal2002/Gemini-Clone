@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useRef, useEffect } from "react";
 import run from "../config/gemini";
 import hljs from 'highlight.js';
 import 'highlight.js/styles/default.css';
@@ -14,6 +14,13 @@ const ContextProvider = (props) => {
     const [showResult,setShowResult] = useState(false);
     const [loading,setLoading] = useState(false);
     const [resultData,setResultData] = useState("");
+    const resultContainerRef = useRef(null); // Ref do kontenera wyników
+
+    useEffect(() => {
+        if (resultContainerRef.current) {
+            resultContainerRef.current.scrollTop = resultContainerRef.current.scrollHeight;
+        }
+    }, [resultData]); // Przewijanie na dół przy zmianie resultData
 
     const delayPara = (index, nextWord) => {
         setTimeout(function (){
@@ -92,6 +99,7 @@ const ContextProvider = (props) => {
         input,
         setInput,
         newChat,
+        resultContainerRef,
     }
 
     return(
