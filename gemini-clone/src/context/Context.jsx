@@ -1,5 +1,8 @@
 import { createContext, useState } from "react";
 import run from "../config/gemini";
+import hljs from 'highlight.js';
+import 'highlight.js/styles/default.css';
+import { marked } from 'marked';
 
 export const Context = createContext();
 
@@ -19,15 +22,34 @@ const ContextProvider = (props) => {
 
     }
 
-    const formatText = (inputText) => {
-        let outputText = inputText.replace(/###(.*?)\n/g, "<h2>$1</h2>");
-        outputText = outputText.replace(/##(.*?)\n/g, "<h3>$1</h3>");
-        outputText = outputText.replace(/#(.*?)\n/g, "<h4>$1</h4>");
-        outputText = outputText.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-        outputText = outputText.replace(/\*(.*?)\n/g, "<li>$1</li>");
-        outputText = outputText.replace(/(?:\r\n|\r|\n)/g, '<br>');
-        return outputText;
-    };
+    const formatText = (text) => {
+        // Konwersja Markdown do HTML
+        const rawHtml = marked(text);
+      
+        // Funkcja do dekodowania encji HTML
+        const decodeHtml = (html) => {
+          const txt = document.createElement('textarea');
+          txt.innerHTML = html;
+          return txt.value;
+        };
+      
+        // Podświetlanie składni kodu
+        const highlightedHtml = rawHtml.replace(
+          /<pre><code class="language-(\w+)">([\s\S]*?)<\/code><\/pre>/g,
+          (match, lang, code) => {
+            // Dekodowanie encji HTML przed podświetlaniem
+            const decodedCode = decodeHtml(code);
+      
+            if (hljs.getLanguage(lang)) {
+              const highlightedCode = hljs.highlight(decodedCode, { language: lang }).value;
+              return `<pre><code class="hljs ${lang}">${highlightedCode}</code></pre>`;
+            }
+            return match;
+          }
+        );
+      
+        return highlightedHtml;
+      };
 
     const newChat = () =>{
         setLoading(false);
