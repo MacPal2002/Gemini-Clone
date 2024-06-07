@@ -22,7 +22,7 @@ Gemini Custom został stworzony jako narzędzie do szybkiego uzyskiwania informa
 
 ## Autor
 
-Gemini Custom został stworzony przez [Twoje Imię/Nazwisko].
+Mackal2002
 
 ---
 

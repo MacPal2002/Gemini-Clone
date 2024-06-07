@@ -14,12 +14,12 @@ const Sidebar = () => {
 
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${extended ? 'extended' : ''}`}>
       <div className="top">
         <img onClick={()=>setExtended(prev=>!prev)} className="menu" src={assets.menu_icon} alt="" />
         <div onClick={()=>newChat()} className="new-chat">
           <img src={assets.plus_icon} alt="" />
-          {extended ? <p>Nowy czat</p> : null}
+          <p>Nowy czat</p>
         </div>
         {extended ? (
           <div className="recent">
@@ -38,15 +38,15 @@ const Sidebar = () => {
       <div className="bottom">
         <div className="bottom-item recent-entry">
           <img src={assets.question_icon} alt="" />
-          {extended ? <p>Pomoc</p> : null}
+          <p>Pomoc</p>
         </div>
         <div className="bottom-item recent-entry">
           <img src={assets.history_icon} alt="" />
-          {extended ? <p>Aktywność</p> : null}
+          <p>Aktywność</p>
         </div>
         <div className="bottom-item recent-entry">
           <img src={assets.setting_icon} alt="" />
-          {extended ? <p>Ustawienia</p> : null}
+          <p>Ustawienia</p>
         </div>
       </div>
     </div>
